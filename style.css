@@ -1,10 +1,16 @@
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
 	font-family: monospace;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
 }
 
 header {
@@ -12,12 +18,14 @@ header {
 	height: 100vh;
 	background-size: cover;
 	background-position: center;
+	z-index: -1;
+	padding: 10px 20px;
 }
 
 .main-nav {
-	float: right;
 	list-style: none;
-	margin-top: 55px;
+	display: flex; /* Coloca los elementos del menú en línea */
+	gap: 20px; /* Espacio entre los elementos del menú */
 }
 
 .main-nav li {
@@ -30,6 +38,8 @@ header {
 	padding: 5px 20px;
 	font-family: "Roboto", sans-serif;
 	font-size: 15px;
+	z-index: 0;
+    position: relative;
 }
 
 .main-nav li.active a {
@@ -43,19 +53,36 @@ header {
 .logo {
 	width: 100px;
 	height: auto;
+	width: auto;
 	float: left;
-	margin-top: 30px;
+	margin: 30px 0 0 0;
+	height: 50px; /* Altura del logo */
 }
 
+/* Logo */
+.logo img {
+	height: 200px; /* Altura del logo */
+  }
+
 .row {
-	max-width: 1200px;
-	margin: auto;
+	display: flex;
+  align-items: center; /* Alinea verticalmente el logo y el menú */
+  justify-content: space-between; /* Separa el logo (izquierda) y el menú (derecha) */
+  max-width: 1200px;
+  margin: 0 auto; /* Centra horizontalmente el contenedor */
 }
 
 .hero {
-	position: absolute;
-	top: 100px;
-	width: 100%;
+	position: relative;
+	/* top: 100px;
+	width: 100%; */
+
+
+	display: block; /* Usamos Flexbox */
+	align-items: center; /* Alineamos verticalmente los elementos */
+	justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+	max-width: 1200px; /* Ancho máximo del contenedor */
+	margin: 0 auto; /* Centramos el contenedor horizontalmente */
 }
 
 h1 {
@@ -70,6 +97,11 @@ h1 {
 .button {
 	text-align: center;
 	margin-top: 50px;
+	display: flex; /* Usamos Flexbox para los botones */
+	gap: 20px; /* Espacio entre los botones */
+	flex-direction: column; /* Apila los botones verticalmente */
+	align-items: center; /* Centra los botones horizontalmente */
+
 }
 
 .btn {
@@ -107,6 +139,7 @@ h1 {
 	height: 100vh;
 	background-size: cover;
 	background-position: center;
+        z-index: -1;
 }
 
 .about {
@@ -114,6 +147,7 @@ h1 {
 	height: 100vh;
 	background-size: cover;
 	background-position: center;
+        z-index: -1;
 }
 
 .blog {
@@ -121,6 +155,7 @@ h1 {
 	height: 100vh;
 	background-size: cover;
 	background-position: center;
+        z-index: -1;
 
 }
 
@@ -129,6 +164,7 @@ h1 {
 	height: 100vh;
 	background-size: cover;
 	background-position: center;
+        z-index: -1;
 }
 
 .faq {
@@ -136,12 +172,15 @@ h1 {
 	height: 100vh;
 	background-size: cover;
 	background-position: center;
+        z-index: -1;
 }
 
 .contact-form {
 	font-family: "Arial", "Helvetica", sans-serif;
 	margin: auto;
 	padding: 0 200px;
+	z-index: 0;
+    position: relative;
 }
 
 .contact-section-header {
@@ -193,9 +232,22 @@ input[type=number]::-webkit-inner-spin-button,
   (min-resolution: 192dpi) {
   	.blog {
     	background-image: url(assets/banner-texture@2x.png) !important;
+	        z-index: -1;
   	}
 
   	.faq {
     	background-image: url(assets/img-prop-type@2x.jpg) !important;
+	        z-index: -1;
   	}
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+    pointer-events: none;
 }
